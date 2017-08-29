@@ -7,8 +7,7 @@ export class PhotoUploadController implements  IPhotoUploadController {
     static $inject: Array<string> = [
         '$log'];
     constructor(private $log: angular.ILogService) {
-    	Dropzone.autoDiscover = false;
-
+    	
     }
 
 }
