@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Plugin PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Plugin certificationLevel="None" displayName="Sailpoint Photo Upload Plugin" minSystemVersion="7.1" name="PhotoUploadPlugin" version="1.0">
+    <Attributes>
+        <Map>
+            <entry key="minUpgradableVersion" value="0.1" />
+            <entry key="fullPage">
+                <value>
+                    <FullPage title="Sailpoint Photo Plugin" />
+                </value>
+            </entry>
+            <entry key="restResources">
+                <value>
+                    <List>
+                       <String>com.schlaepfer.plugin.rest.BoilerPlateRequestAccessResource</String>
+                    </List>
+                </value>
+            </entry>
+            <entry key="settings">
+                <value>
+                    <List>
+                    </List>
+                </value>
+            </entry>
+            <entry key="serviceExecutors">
+                <value>
+                    <List>
+                    </List>
+                </value>
+            </entry>
+            <entry key="snippets">
+                <value>
+                    <List>
+                        <Snippet regexPattern=".*">
+                           <Scripts>
+                              <String>ui/quicklink.js</String>
+                           </Scripts>
+                        </Snippet>
+                    </List>
+                </value>
+            </entry>
+        </Map>
+    </Attributes>
+</Plugin>

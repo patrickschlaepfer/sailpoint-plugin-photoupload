@@ -1,0 +1,27 @@
+version '0.0.1'
+
+String osName = System.getProperty('os.name').toLowerCase();
+
+task npmPlugin(type: Exec) {
+   if (osName.contains('windows')) {
+      commandLine 'cmd','/c', 'npm'
+      args 'run','build'
+   } else {
+      commandLine 'npm', 'run','build'
+      // executable 'npm'
+      // args ['run']
+   }
+}
+
+task build() {
+   dependsOn 'copyPageXHTML'
+   dependsOn 'npmPlugin'
+}
+
+task copyPageXHTML(type: Copy) {
+   from('src/') {
+      include 'page.xhtml'
+      include 'quicklink.js'
+   }
+   into('build')
+}
