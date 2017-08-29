@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c rollup.config.js --no-conflict --environment BUILD:development",
-    "minify": "rollup -c rollup.config.js --environment INCLUDE_DEPS,BUILD:minify"},
+    "minify": "rollup -c rollup.config.js --environment INCLUDE_DEPS,BUILD:minify"
+  },
   "author": "Patrick Schlaepfer <patrick.schlaepfer@ic-consult.ch",
   "license": "ISC",
   "devDependencies": {
@@ -37,6 +38,8 @@
     "angular-route": "1.5.8",
     "angular-sanitize": "1.5.8",
     "angular-ui-bootstrap": "2.0.1",
-    "angular-ui-utils": "^0.1.1"
+    "angular-ui-utils": "^0.1.1",
+    "dropzone": "^5.1.1",
+    "ngdropzone": "^2.0.2"
   }
 }

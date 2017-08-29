@@ -2,6 +2,7 @@ package schlaepfer.com.plugin.rest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -10,12 +11,14 @@ import javax.ws.rs.Path;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import sailpoint.integration.ListResult;
 import sailpoint.integration.RequestResult;
 import sailpoint.rest.plugin.AllowAll;
 import sailpoint.rest.plugin.BasePluginResource;
 import sailpoint.tools.GeneralException;
+import schlaepfer.com.plugin.dto.PhotoDTO;
 
 public class BoilerPlateRequestAccessResource extends BasePluginResource {
 
@@ -36,7 +39,7 @@ public class BoilerPlateRequestAccessResource extends BasePluginResource {
 			
 		} catch (Throwable thr) {
             logger.error("Exception while getting non personal accounts");
-            retResult = new ListResult(nonPersonalAccountDTOs, nonPersonalAccountDTOs.size());
+            retResult = new ListResult(newList, newList.size());
             retResult.setStatus(RequestResult.STATUS_FAILURE);
             retResult.addError(thr);
 		}	
@@ -45,16 +48,16 @@ public class BoilerPlateRequestAccessResource extends BasePluginResource {
 	
 	@POST
     @Consumes("application/vnd.boilerplate-v1+json")
-    @Path("getIdentites")
+    @Path("photos")
     @AllowAll
-    public ListResult getSelectedIdentites(Map<String, Object> request) throws GeneralException {
+    public ListResult uploadPhoto(Map<String, Object> request) throws GeneralException {
            ListResult retResult = null;
-           IdentitesSearchDTO identitesSearchDTO = null;
-           List<IdentityDTO> identitesDTO = new ArrayList<>();
+           PhotoDTO photoDTO = null;
+           List<String> identitesDTO = new ArrayList<>();
            
            ObjectMapper mapper = new ObjectMapper();
            try {
-                  identitesSearchDTO = mapper.convertValue(request, IdentitesSearchDTO.class);
+                  photoDTO = mapper.convertValue(request, PhotoDTO.class);
                   
            } catch (Throwable thr) {
                logger.error("Exception while getSelectedIdentites", thr);
