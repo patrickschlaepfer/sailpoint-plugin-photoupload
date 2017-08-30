@@ -12,15 +12,24 @@
         <div class="row">
             <form class="form" name="cart.shopppingCartForm">
                 <div class="row">
-                    <div class="col-xs-8">
-                        COL XS 8
-                        <div class="dropzone" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods" ng-dropzone></div>
-                    </div>
-                    <div class="col-xs-4">
-                        COL XS 4
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-6">
+		                                <div class="form-group">
+		                                    <label for="">Label</label>
+		                                    <input type="text" class="form-control"/>
+		                                </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="dropzone" options="photoupload.dzOptions" callbacks="photoupload.dzCallbacks" methods="dzMethods" ng-dropzone></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </form>
         </div>
     </section>
